@@ -8,7 +8,7 @@ class User(Document):
     id = StringField (primary_key = True, default = lambda:str (uuid4()))
     name = StringField (required = True)
     email = EmailField(required = True)
-    pasword = StringField(required = True)
+    password = StringField(required = True)
     mobileNumber = StringField()
     addedTime = DateField(default=datetime.now())
     updatedTime = DateField()
@@ -19,5 +19,12 @@ class Intern(Document):
     id = StringField(primary_key= True, default = lambda:str(uuid4()))
     user = ReferenceField(User, reverse_delete_rule=CASCADE, required=True)
     skills = ListField()
+
+class Project(Document):
+    meta = {"collection": "projects"}
+
+    id = StringField(primary_key=True, default=lambda: str(uuid4()))
+    name = StringField(required=True)
+    description = StringField()
     addedTime = DateField(default=datetime.now())
     updatedTime = DateField()

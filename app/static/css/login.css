@@ -19,3 +19,8 @@ input::placeholder {
 button {
   font-weight: 600;
 }
+
+.login {
+
+  justify-items: center;
+}
