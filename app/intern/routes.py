@@ -55,32 +55,52 @@ def getAllIntern():
     
 @internBp.put('/update')
 def updateIntern():
-    userId = request.args.get("id")
+    internId = request.args.get("id")
     data= request.get_json()
     try:
+
+        if not internId:
+            return jsonify({"status":"error","message":"internId not Found"})
+        
+
+        intern=Intern.objects(id=internId).first()
+
         if not intern:
+            return jsonify({"status" : "error","message":"Intern not found"})
+        
+        if data['user']=="":
+            return jsonify({"status":"error","message":"Missing Required Field"})
+        
+        user = User.objects(id=data['user']).first()
+
+        if not user:
             return jsonify({"status" : "error","message":"User not found"})
-        if data['name']=="":
-            return jsonify({"status":"error","message":"Missing Required Field: please add the user name"})
-        intern=Intern.objects(id=userId).first()
+        
+
+        intern.user = user 
         intern.skills = data["skills"]
         intern.updatedTime = datetime.now()
         intern.save()
-        return jsonify({"status":"success","message":"User updated Successfully"})
+        return jsonify({"status":"success","message":"Intern updated Successfully"})
     
     except Exception as e:
         return jsonify({"status":"error","message":f"error occured{e}"})
      
 @internBp.delete('/delete')
 def deleteIntern():
-    userId=request.args.get("id")
+    internId=request.args.get("id")
     try:
-        if not intern:
-            return jsonify({"status" : "error","message":"User not found"})
+
+        if not internId:
+            return jsonify({"status":"error","message":"internId not Found"})
         
-        intern = Intern.objects(user=userId).first()
+        intern = Intern.objects(intern=internId).first()
+
+        if not intern:
+            return jsonify({"status" : "error","message":"Intern not found"})
+        
         intern.delete()
-        return jsonify({"status":"success","message":"Intern Deletes Successfully"})
+        return jsonify({"status":"success","message":"Intern Deleted Successfully"})
     
     except Exception as e:
         return jsonify({"status":"error","message":f"error occured cant delete{e}"})
