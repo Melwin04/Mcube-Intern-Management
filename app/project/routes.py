@@ -47,6 +47,7 @@ def updateProject():
     try:
         if not projectId:
             return jsonify({"status": "error", "message": "Project ID not found"}), 404
+        
         if data.get("name") == "":
             return jsonify({"status": "error", "message": "Name Field is Missing"}), 404
 

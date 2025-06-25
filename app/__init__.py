@@ -19,6 +19,9 @@ def create_app():
     from app.auth import authBp
     app.register_blueprint(authBp,url_prefix='/auth')
 
+    from app.main import mainBp
+    app.register_blueprint(mainBp)
+
     return app
   
 
