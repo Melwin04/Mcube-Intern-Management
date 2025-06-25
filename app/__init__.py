@@ -22,6 +22,9 @@ def create_app():
     from app.main import mainBp
     app.register_blueprint(mainBp)
 
+    from app.task import taskBp
+    app.register_blueprint(taskBp, url_prefix='/task')
+
     return app
   
 

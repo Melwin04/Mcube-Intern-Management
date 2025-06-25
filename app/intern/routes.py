@@ -13,7 +13,7 @@ def addIntern():
 
         skills=data.get("skills", [])
 
-        if user == "" or len(skills) == 0:
+        if userId == "" or len(skills) == 0:
             return jsonify({"status":"error","message":"All Fields are Required"})
         
         user=User.objects(id=userId).first()
