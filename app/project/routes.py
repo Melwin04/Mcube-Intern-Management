@@ -79,4 +79,6 @@ def deleteProject():
         return jsonify({"status": "success", "message": "Project deleted successfully"}), 200
     except Exception as e:
         return jsonify({"status": "error", "message": f"Error : {e}"}), 404
+    
 
+        

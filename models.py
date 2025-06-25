@@ -28,3 +28,14 @@ class Project(Document):
     description = StringField()
     addedTime = DateField(default=datetime.now())
     updatedTime = DateField()
+
+class Task(Document):
+    meta = {"collection": "task"}
+    
+    id = StringField(primary_key=True, default=lambda: str(uuid4()))
+    taskName = StringField(required=True)
+    taskDescription = StringField()
+    project = ReferenceField(Project,reverse_delete_rule=CASCADE, required = True)
+    user = ReferenceField(User,reverse_delete_rule=CASCADE, required = True)
+    addedTime = DateField(default=datetime.now())
+    updatedTime = DateField()
