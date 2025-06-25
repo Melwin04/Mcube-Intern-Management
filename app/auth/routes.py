@@ -33,14 +33,16 @@ def login():
 
         if not user:
             return jsonify({"status" : "error", "message" : "User Not Found."}) ,404 
-
-        if user.password == data.get("password"):
-            session['user'] = {
-                "name": user.name,
-                "id": user.id,
-                "email": user.email
-            }
+        
+        if user.password != data.get("password"):
+            return jsonify({"status" : "error" , "message" : "Password Not Matched"}), 404
+        
+        session['user'] = {
+            "name": user.name,
+            "id": user.id,
+            "email": user.email
+        }
          
-        return jsonify({"status" : "success" , "status" : "User Logged In Successfully"}),200
+        return jsonify({"status" : "success" , "message" : "User Logged In Successfully"}),200
     except Exception as e:
-        return jsonify({"status" : "error", "status" : f"Error {e}" }),404
+        return jsonify({"status" : "error", "message" : f"Error {e}" }),404

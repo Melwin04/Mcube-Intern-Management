@@ -40,7 +40,7 @@
                 data-bs-target="#sidebar" aria-controls="sidebar">
                 ☰
             </button>
-            <a class="navbar-brand ms-2" href="#">Dashboard</a>
+            <a class="navbar-brand ms-2" href="/dashboard">Intern Flow</a>
 
 
             <!-- Header offcanvas toggle for tablets/mobiles -->
@@ -64,19 +64,21 @@
         <div class="row h-100" style="height: 100vh !important;">
 
             <!-- Sidebar (Offcanvas for smaller screens, visible always for md and up) -->
-            <div class="col-md-3 col-lg-2 p-0 bg-light">
-                <div class="offcanvas-md offcanvas-start h-100" tabindex="-1" id="sidebar"
+            <div class="col-md-3 col-lg-2 p-0 bg-dark">
+                <div class="offcanvas-md offcanvas-start bg-dark h-100" tabindex="-1" id="sidebar"
                     aria-labelledby="sidebarLabel">
                     <div class="offcanvas-header d-md-none">
-                        <h5 class="offcanvas-title" id="sidebarLabel">Sidebar</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                        <h5 class="offcanvas-title text-white" id="sidebarLabel">Sidebar</h5>
+                        <button type="button" class="btn-close btn-close-white d-md-none" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+
                     </div>
                     <div class="offcanvas-body p-0">
                         <nav class="nav flex-column pt-3 px-2">
-                            <a class="nav-link active" href="#">Dashboard</a>
-                            <a class="nav-link" href="#">Intern</a>
-                            <a class="nav-link" href="#">Project</a>
-                            <a class="nav-link" href="#">Task</a>
+                            <a class="nav-link text-white" href="/dashboard">Dashboard</a>
+                            <a class="nav-link text-white" href="/intern">Intern</a>
+                            <a class="nav-link text-white" href="/projects">Project</a>
+                            <a class="nav-link text-white" href="/task">Task</a>
                         </nav>
                     </div>
                 </div>
@@ -137,13 +139,13 @@
                                             placeholder="Enter description"></textarea>
                                     </div>
                                     <div>
-                                    <label for="description" class="form-label">User</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Select User</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
+                                        <label for="description" class="form-label">User</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Select User</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
                                     </div>
                                     <label for="description" class="form-label">Project</label>
                                     <select class="form-select" aria-label="Default select example">
@@ -152,9 +154,9 @@
                                         <option value="2">Two</option>
                                         <option value="3">Three</option>
                                     </select>
-                                    </div>
-                                </form>
-                                 <div class="modal-footer">
+                            </div>
+                            </form>
+                            <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-primary">Save</button>
                             </div>
@@ -164,9 +166,8 @@
                 </div>
 
                 <!-- Bootstrap JS Bundle CDN (includes Popper) -->
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-                    crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 
