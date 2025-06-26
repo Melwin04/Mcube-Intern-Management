@@ -25,6 +25,9 @@ def create_app():
     from app.task import taskBp
     app.register_blueprint(taskBp, url_prefix='/task')
 
+    from app.user import userBp
+    app.register_blueprint(userBp, url_prefix='/user')
+
     return app
   
 

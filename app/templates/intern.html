@@ -10,14 +10,14 @@
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.css" />
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <style>
         .mt-1 {
             margin-top: 2.25rem !important;
         }
-    </style>
 
-    <style>
         html {
             overflow-x: hidden;
         }
@@ -28,6 +28,10 @@
             left: -110px;
         }
     </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap.min.css" integrity="sha512-BMbq2It2D3J17/C7aRklzOODG1IQ3+MHw3ifzBHMBwGO/0yUqYmsStgBjI0z5EYlaDEFnvYV7gNYdD3vFLRKsA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -91,23 +95,17 @@
                     </button>
                 </div>
 
-                <table class=" table table-bordered table-hover mt-1">
+                <table class=" table table-bordered table-hover mt-1" id="internTable">
                     <thead class="table-light">
                         <tr>
-                            <th>user</th>
-                            <th>skills</th>
+                            <th>User</th>
+                            <th>Skills</th>
                             <th>Added Time</th>
                             <th>Updated Time</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="height: 40px;">
-                            <td></td>
-
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
                     </tbody>
                 </table>
 
@@ -126,17 +124,13 @@
                                 <form id="internForm">
                                     <div class="mb-3">
                                         <label class="form-label">Users</label>
-                                        <select name="user" class="form-select" aria-label="Default select example">
-                                            <option selected>Open this select menu</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                        <select name="user" class="form-select userSelect" style="width: 100% !important;" aria-label="Default select example">
+                                            <!-- Dynamically Loaded -->
                                         </select>
                                     </div>
                                     <div class="mb-3">
                                         <label for="skills" class="form-label">Skills</label>
-                                        <textarea class="form-control" name="skills" id="skills" rows="3"
-                                            placeholder="Enter skills"></textarea>
+                                        <select multiple="multiple" name="skills" id="skills" style="width: 100% !important;"></select>
 
                                     </div>
                                     <div class="modal-footer">
@@ -152,13 +146,20 @@
                         </div>
                     </div>
                 </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-                <!-- Bootstrap JS Bundle CDN (includes Popper) -->
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-                    crossorigin="anonymous"></script>
-                <script src="../static/js/intern.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
+
+    <!-- Bootstrap JS Bundle CDN (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+    <script src="../static/js/intern.js"></script>
 </body>
 
 </html>

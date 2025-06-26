@@ -20,6 +20,9 @@ class Intern(Document):
     user = ReferenceField(User, reverse_delete_rule=CASCADE, required=True)
     skills = ListField()
 
+    addedTime = DateField(default=datetime.now())
+    updatedTime = DateField()
+
 class Project(Document):
     meta = {"collection": "projects"}
 
