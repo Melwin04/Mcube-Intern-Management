@@ -127,20 +127,20 @@
                             </div>
 
                             <div class="modal-body">
-                                <form>
+                                <form id="taskForm">
                                     <div class="mb-3">
                                         <label for="projectName" class="form-label">Task Name</label>
-                                        <input type="text" class="form-control" id="projectName"
-                                            placeholder="Enter project name">
+                                        <input type="text" class="form-control" id="taskName"
+                                            placeholder="Enter project name" name="taskName">
                                     </div>
                                     <div class="mb-3">
                                         <label for="description" class="form-label">Description</label>
                                         <textarea class="form-control" id="description" rows="3"
-                                            placeholder="Enter description"></textarea>
+                                            placeholder="Enter description" name="taskDescription"></textarea>
                                     </div>
                                     <div>
                                         <label for="description" class="form-label">User</label>
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" aria-label="Default select example" name="user">
                                             <option selected>Select User</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -148,18 +148,21 @@
                                         </select>
                                     </div>
                                     <label for="description" class="form-label">Project</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" aria-label="Default select example" name="project">
                                         <option selected>Select Project</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
                                         <option value="3">Three</option>
                                     </select>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </form>
                             </div>
-                            </form>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save</button>
-                            </div>
+
+
 
                         </div>
                     </div>
@@ -167,6 +170,7 @@
 
                 <!-- Bootstrap JS Bundle CDN (includes Popper) -->
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="../static/js/task.js"></script>
 
 
 </body>

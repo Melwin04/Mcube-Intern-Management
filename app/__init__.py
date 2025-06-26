@@ -18,10 +18,10 @@ def create_app():
     app.register_blueprint(internBp, url_prefix='/intern')
     from app.auth import authBp
     app.register_blueprint(authBp,url_prefix='/auth')
-
+    from app.project import projectBp
+    app.register_blueprint(projectBp,url_prefix = '/project')
     from app.main import mainBp
     app.register_blueprint(mainBp)
-
     from app.task import taskBp
     app.register_blueprint(taskBp, url_prefix='/task')
 
