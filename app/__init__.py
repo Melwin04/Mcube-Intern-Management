@@ -27,6 +27,8 @@ def create_app():
 
     from app.user import userBp
     app.register_blueprint(userBp, url_prefix='/user')
+    from app.dashboard import dashboardBp
+    app.register_blueprint(dashboardBp, url_prefix='/dashboard')
 
     return app
   
