@@ -22,6 +22,26 @@ def getUsers():
         return jsonify({"status": "error", "message": f"Error {e}"})
 
 
+@userBp.get('/get')
+def getUserById():
+    id = request.args.get("id")
+    try: 
+        user = User.objects(id=id).first()
+
+        userData = {
+            "id": user.id,
+            "name": user.name,
+            "email": user.email,
+            "password": user.password,
+            "mobileNumber": user.mobileNumber,
+            "addedTime": user.addedTime,
+            "updatedTime": user.updatedTime
+        }
+
+        return jsonify({"status": "success", "message": "User Retrieved Successfully", "data": userData})
+    except Exception as e:
+        return jsonify({"status": "error", "message": f"Error {e}"})
+
 
 @userBp.post('/new')
 def createUser():
@@ -153,6 +173,7 @@ def getUser():
             "id": user.id,
             "name": user.name,
             "email": user.email,
+            "password": user.password,
             "mobileNumber": user.mobileNumber,
             "addedTime": user.addedTime,
             "updatedTime": user.updatedTime

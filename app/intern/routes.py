@@ -95,7 +95,7 @@ def deleteIntern():
         if not internId:
             return jsonify({"status":"error","message":"internId not Found"})
         
-        intern = Intern.objects(intern=internId).first()
+        intern = Intern.objects(id=internId).first()
 
         if not intern:
             return jsonify({"status" : "error","message":"Intern not found"})
@@ -106,15 +106,7 @@ def deleteIntern():
     except Exception as e:
         return jsonify({"status":"error","message":f"error occured cant delete{e}"})
     
-               
-     
-            
     
-
-
-
-
-
 
 
 
@@ -194,3 +186,20 @@ def getInterns():
 
      except Exception as e:
         return jsonify({"status":"error","message":f"Error Occured While retrieving to get logs: {str(e)}"}), 500
+     
+@internBp.get('/get')
+def getInternById():
+    id = request.args.get("id")
+    try: 
+        intern = Intern.objects(id=id).first()
+
+        internData = {
+            "user": intern.id,
+            "skills": intern.skills,
+            "addedTime": intern.addedTime,
+            "updatedTime": intern.updatedTime
+        }
+
+        return jsonify({"status": "success", "message": "User Retrieved Successfully", "data": internData})
+    except Exception as e:
+        return jsonify({"status": "error", "message": f"Error {e}"})  
