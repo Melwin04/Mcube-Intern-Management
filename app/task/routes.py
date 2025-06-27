@@ -4,6 +4,23 @@ from flask import jsonify, request, session
 from datetime import datetime, timedelta
 from mongoengine import Q
 
+@taskBp.get('/getAllNames')
+def getTaskNames():
+    
+    try: 
+        tasks = Task.objects()
+
+        taskData = [{
+                "id": task.id,
+                "text": task.taskName
+        }
+        for task in tasks
+        ]
+
+        return jsonify({"status": "success", "message": "Task Retrieved Successfully", "data": taskData})
+    except Exception as e:
+        return jsonify({"status": "error", "message": f"Error {e}"})
+
 @taskBp.post('/new')
 def createtask():
     try:

@@ -42,3 +42,14 @@ class Task(Document):
     user = ReferenceField(User,reverse_delete_rule=CASCADE, required = True)
     addedTime = DateField(default=datetime.now())
     updatedTime = DateField()
+
+class Assign_project(Document):
+    meta = {"collection": "assignProject"}
+
+    id = StringField(primary_key=True, default=lambda: str(uuid4()))
+    task = ReferenceField(Task, reverse_delete_rule=CASCADE, required=True)
+    user = ReferenceField(User, reverse_delete_rule=CASCADE, required=True)
+    status = StringField()
+    deadline = DateField()  
+    addedTime = DateField(default=datetime.now)
+    updatedTime = DateField()

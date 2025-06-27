@@ -81,6 +81,7 @@ def updateUser():
 
         user.name = data["name"]
         user.password = data.get("password")
+        user.mobileNumber = data.get("mobileNumber")
         user.updatedTime = datetime.now()
         user.save()
 

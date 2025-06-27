@@ -29,6 +29,8 @@ def create_app():
     app.register_blueprint(userBp, url_prefix='/user')
     from app.dashboard import dashboardBp
     app.register_blueprint(dashboardBp, url_prefix='/dashboard')
+    from app.assignProject import assignBp
+    app.register_blueprint(assignBp, url_prefix='/assignProject')
 
     return app
   
